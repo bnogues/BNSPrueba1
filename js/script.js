@@ -6,8 +6,7 @@ const libros = [{
     editorial:  'Hispana',
     idioma:  'Español',
     paginas:  400,
-    // imagen: ' '
-    imagen:  'data:image/ISBN-001-el-oscuro-adios-de-teresa-lanza.jpeg'
+    imagen:  '../BNSPrueba1/image/ISBN-001.jpg'
 },
 {
     isbn:   002,
@@ -17,8 +16,7 @@ const libros = [{
     editorial:  'Hispana',
     idioma:  'Español',
     paginas:  400,
-    imagen:   ''
-    // imagen:  'data:image/ISBN-002 - ARSENE LUPIN CABALLERO LADRÓN.jpeg'
+    imagen:  '../BNSPrueba1/image/ISBN-002.jpg'
 },
 {
     isbn:   003,
@@ -28,8 +26,7 @@ const libros = [{
     editorial:  'Hispana',
     idioma:  'Español',
     paginas:  400,
-    imagen:   ''
-    // imagen:  'data:image/ISBN-003 - MEAL PREP - SI NOS ORGANIZAMOS COMEMOS TODOS.jpeg'
+    imagen:  '../BNSPrueba1/image/ISBN-003.jpg'
 },
 {
     isbn:   004,
@@ -39,8 +36,7 @@ const libros = [{
     editorial:  'Hispana',
     idioma:  'Español',
     paginas:  400,
-    imagen:   ''
-    // imagen:  'data:image/ISBN-004 - SIETE FUEGOS.jpeg'
+    imagen:  '../BNSPrueba1/image/ISBN-004.jpeg'
 },
 {
     isbn:   005,
@@ -50,9 +46,8 @@ const libros = [{
     editorial:  'Hispana',
     idioma:  'Español',
     paginas:  400,
-    imagen:   ''
-    // imagen:  'data:image/ISBN-005  - UNA AVENTURA DE MEDITACION VIPASSANA.jpeg'
-}
+    imagen:  '../BNSPrueba1/image/ISBN-005.jpeg'
+ }
 ];
 
 var usuarios = [
@@ -72,6 +67,7 @@ var usuarios = [
      }
     ];
 
+    // ARRAY DE PRESTAMOS REALIZADOS
     // const prestamos = [{
     //     isbn:   001,
     //     user:      ,
@@ -79,19 +75,17 @@ var usuarios = [
     //     fechadevolver:   ,  
     // } ];
 
+    // ARRAY DE DEVOLUCIONES REALIZADAS
     // const devoluciones = [{
     //     isbn:   001,
     //     user:      ,
     //     fechadevolucion:   ,  
     // } ];
 
+    //PARA SABER LA DISPINIBILIDAD DE UN LIBRO ,  filtrando por el codigo ISBN del Libro hay que hacer la 
+    //siguiente operacion:
+    //Disponibles = Libros.cantidad - Suma de Libros Prestados - Suma de Libros Devueltos
 
-
-// var Autorizado = 'NO';
-
-// // grabo variable de Session Autorizado
-// sessionStorage.setItem('SesionMail', JSON.stringify('umail'.value));
-// sessionStorage.setItem('SesionPass', JSON.stringify('upass'.value));
 
 
 function generarLibros(data) {
@@ -101,6 +95,7 @@ function generarLibros(data) {
 }
 
 function generadorGridCard(data, position) {
+    // let librosContainer = document.getElementById(position);
     let productosContainer = document.getElementById(position);
 
     data.forEach(element => {
@@ -157,7 +152,10 @@ function generadorGridCard(data, position) {
 
         let DOMimgNode = document.createElement('img');
         DOMimgNode.className = 'card-img-top';
-        DOMimgNode.setAttribute('src', element.imagen);
+        
+        DOMimgNode.setAttribute('src', "../BNSPrueba1/"+element.imagen);
+        // ../BNSPrueba1/image/Login-Biblioteca.jpeg"  --ok
+        // DOMimgNode.setAttribute('src', element.imagen);
         DOMimgNode.setAttribute('height', "190px");
         DOMimgNode.setAttribute('width', "150px");
 
@@ -175,6 +173,7 @@ function generadorGridCard(data, position) {
         DOMcolNode.appendChild(DOMcardNode);
 
         listalibros.appendChild(DOMcolNode);
+        // librosContainer.appendChild(DOMcolNode);
 
     });
 

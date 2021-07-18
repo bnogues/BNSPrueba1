@@ -27,7 +27,7 @@ enviar.addEventListener('click', function(e) {
     let password = document.getElementById('password').value;
 
 console.log(mail);
-console.log(usuarios);
+// console.log(usuarios);
 
     
     if (isValidEmail(mail) && isValidPassword(password)) 
@@ -49,10 +49,37 @@ console.log(usuarios);
                 usuario:  'Pepe',
                 nombre:   'Jose Luis',
                 direccion: 'rrrrr',
-                telefono: '789 '
+                telefono: '789 ',
             } );
-
+// el elemento insertado con el push,  el Console lo muestar antes y despues del push
 console.log(usuarios);
+
+
+//recuperar array 
+let usuariosobj = JSON.parse(sessionStorage.getItem('ListaUsuarios')); 
+//console.log(usuarios3);
+
+//You can convert its values to an array by doing:  Pagina 136 Manual Javascript
+var usuarios3 = Object.keys(usuariosobj)
+.map(function(key) { return usuariosobj[key]; });
+
+console.log(usuarios3);
+
+usuarios3.push(         
+    {    mail:     'jose',
+         password: 'jojo',
+         usuario:  'Pepe',
+         nombre:   'Jose Luis',
+         direccion: 'rrrrr',
+         telefono: '789 ',
+     } );
+console.log(usuarios3);
+
+//volver a grabar el Array
+//usuario2 = usuarios;
+//console.log(usuarios2);
+sessionStorage.setItem('ListaUsuarios', JSON.stringify({usuarios3}));
+
     }
     else 
     { 

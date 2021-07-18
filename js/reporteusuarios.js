@@ -1,3 +1,4 @@
+
 //MUESTRA USUARIO CONECTADO
 //recuperar variable de ssecion
 let usuario2 = JSON.parse(sessionStorage.getItem('Usuarioconectado')); 
@@ -18,8 +19,9 @@ if (usuario2.user === 'NINGUNO' )
   window.history.back();
 }
 
-for (let index = 0; index < libros.length; index++) {
-    let element = libros[index];
+
+for (let index = 0; index < usuarios.length; index++) {
+    let element = usuarios[index];
     // console.log(element);
 
     let DOMth0Node = document.createElement('th');
@@ -27,26 +29,28 @@ for (let index = 0; index < libros.length; index++) {
     DOMth0Node.innerText = index+1;
 
     let DOMtd1Node = document.createElement('td');
-    DOMtd1Node.className = 'isbn';
-    DOMtd1Node.innerText = element.isbn;
+    DOMtd1Node.className = 'mail';
+    DOMtd1Node.innerText = element.mail;
 
     let DOMtd2Node = document.createElement('td');
-    DOMtd2Node.className = 'titulo';
-    DOMtd2Node.innerText = element.titulo;
+    DOMtd2Node.className = 'password';
+    DOMtd2Node.innerText = element.password;
 
     let DOMtd3Node = document.createElement('td');
-    DOMtd3Node.className = 'autor';
-    DOMtd3Node.innerText = element.autor;
+    DOMtd3Node.className = 'usuario';
+    DOMtd3Node.innerText = element.usuario;
 
     let DOMtd4Node = document.createElement('td');
-    DOMtd4Node.className = 'editorial';
-    DOMtd4Node.className = element.editorial;
+    DOMtd4Node.className = 'nombre';
+    DOMtd4Node.className = element.nombre;
 
     let DOMtd5Node = document.createElement('td');
-    DOMtd5Node.className = element.idioma;
+    DOMtd5Node.className = 'direccion';
+    DOMtd5Node.className = element.direccion;
 
     let DOMtd6Node = document.createElement('td');
-    DOMtd6Node.className = element.paginas;
+    DOMtd6Node.className = 'telefono';
+    DOMtd6Node.className = element.telefono;
 
     let DOMtrNode = document.createElement('tr');
     // DOMtrNode.className = element.paginas;
@@ -59,6 +63,6 @@ for (let index = 0; index < libros.length; index++) {
     DOMtrNode.appendChild(DOMtd5Node);
     DOMtrNode.appendChild(DOMtd6Node);
 
-    cuerpo.appendChild(DOMtrNode);
+    cuerpousuarios.appendChild(DOMtrNode);
 
 }

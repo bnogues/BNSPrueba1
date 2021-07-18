@@ -4,12 +4,12 @@ var menuData = [{
     aLinkHref: "../index.html",
     liClass: "nav-item"
 },
-{
-    aLinkName: "Preguntas",
-    aLinkClass: "nav-link",
-    aLinkHref: "#",
-    liClass: "nav-item"
-},
+// {
+//     aLinkName: "Preguntas Frecuentes",
+//     aLinkClass: "nav-link",
+//     aLinkHref: "#",
+//     liClass: "nav-item"
+// },
 {
     aLinkName: "Contacto",
     aLinkClass: "nav-link",
@@ -23,21 +23,27 @@ var menuData = [{
     liClass: "nav-item"
 },
 {
-    aLinkName: "Reporte de Libros",
+    aLinkName: "Reporte Libros",
     aLinkClass: "nav-link",
     aLinkHref: "forms/reporte.html",
     liClass: "nav-item"
 },
 {
-    aLinkName: "Reservas del Usuario",
+    aLinkName: "Reporte Usuarios",
     aLinkClass: "nav-link",
-    aLinkHref: "#",
+    aLinkHref: "forms/reporteusuarios.html",
     liClass: "nav-item"
 },
 {
     aLinkName: "Login",
     aLinkClass: "nav-link",
     aLinkHref: "forms/login.html",
+    liClass: "nav-item"
+},
+{
+    aLinkName: "Logout",
+    aLinkClass: "nav-link",
+    aLinkHref: "forms/logout.html",
     liClass: "nav-item"
 },
 {
@@ -63,3 +69,6 @@ for (let index = 0; index < data.length; index++) {
 }
 }
 generadorMenu(menuData, "mainMenu");
+
+
+

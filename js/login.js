@@ -15,6 +15,7 @@ function isValidPassword(password) {
     return false;
 }
 
+var Usuario ;
 var Autorizado = 'NO';
 //enviar contacto
 var enviar = document.getElementById('EnviarLogin');
@@ -40,13 +41,16 @@ enviar.addEventListener('click', function(e) {
             let element = usuarios[index];
             console.log(element);
             if (element.mail === mail && element.password === password)
-                  { Autorizado = 'SI' };  
+                  { Autorizado = 'SI'
+                    Usuario = element.usuario };  
         }
 
 console.log(Autorizado);
         if (Autorizado === 'SI') {
             // grabo variable de Session Autorizado
-            sessionStorage.setItem('credenciales', JSON.stringify({user:mail, password:password}));
+            sessionStorage.setItem('Usuarioconectado', JSON.stringify({user:Usuario}));
+
+
         }  else { 
             //  Mensaje de Error con Alert
                alert("No Existe Mail/Contraseña");   
