@@ -14,7 +14,7 @@ else
 UsuarioConectado.appendChild(DOMusrNode);
 
 if (usuario2.user === 'NINGUNO' )
-{ alert("Para Ingresar un Libro debe conectarse al Sistema"); 
+{ alert("Para emitir el Reporte de Libros debe conectarse al Sistema"); 
   window.history.back();
 }
 
@@ -40,13 +40,13 @@ for (let index = 0; index < libros.length; index++) {
 
     let DOMtd4Node = document.createElement('td');
     DOMtd4Node.className = 'editorial';
-    DOMtd4Node.className = element.editorial;
+    DOMtd4Node.innerText = element.editorial;
 
     let DOMtd5Node = document.createElement('td');
-    DOMtd5Node.className = element.idioma;
+    DOMtd5Node.innerText = element.idioma;
 
     let DOMtd6Node = document.createElement('td');
-    DOMtd6Node.className = element.paginas;
+    DOMtd6Node.innerText = element.paginas;
 
     let DOMtrNode = document.createElement('tr');
     // DOMtrNode.className = element.paginas;

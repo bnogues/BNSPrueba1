@@ -5,3 +5,18 @@
     justify-content: right;
 
 }
+
+.repousuarios {
+    border: 20px;
+    padding: 25px;
+}
+
+#repusuarios {
+    border: 15px;
+}
+
+.repolibros {
+    border: 20px;
+    padding: 20px;
+}
+

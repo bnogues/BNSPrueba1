@@ -1,6 +1,6 @@
 
 //MUESTRA USUARIO CONECTADO
-//recuperar variable de ssecion
+//recuperar variable de session
 let usuario2 = JSON.parse(sessionStorage.getItem('Usuarioconectado')); 
 console.log(usuario2.user);
 
@@ -15,7 +15,7 @@ else
 UsuarioConectado.appendChild(DOMusrNode);
 
 if (usuario2.user === 'NINGUNO' )
-{ alert("Para Ingresar un Libro debe conectarse al Sistema"); 
+{ alert("Para emitir el Reporte de Usuarios debe conectarse al Sistema"); 
   window.history.back();
 }
 
@@ -42,18 +42,17 @@ for (let index = 0; index < usuarios.length; index++) {
 
     let DOMtd4Node = document.createElement('td');
     DOMtd4Node.className = 'nombre';
-    DOMtd4Node.className = element.nombre;
+    DOMtd4Node.innerText = element.nombre;
 
     let DOMtd5Node = document.createElement('td');
     DOMtd5Node.className = 'direccion';
-    DOMtd5Node.className = element.direccion;
+    DOMtd5Node.innerText = element.direccion;
 
     let DOMtd6Node = document.createElement('td');
     DOMtd6Node.className = 'telefono';
-    DOMtd6Node.className = element.telefono;
+    DOMtd6Node.innerText = element.telefono;
 
     let DOMtrNode = document.createElement('tr');
-    // DOMtrNode.className = element.paginas;
    
     DOMtrNode.appendChild(DOMth0Node);
     DOMtrNode.appendChild(DOMtd1Node);

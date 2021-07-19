@@ -13,9 +13,9 @@ const libros = [{
     titulo: 'ARSENE LUPIN CABALLERO LADRÓN',
     autor:  'LEBLANC, MAURICE',
     resena: 'ARSÈNE LUPIN, CABALLERO LADRÓN. LAS HISTORIAS EN LAS QUE SE BASA LA NUEVA SERIE DE TELEVISIÓN DE NETFLIX. LA SAGA LITERERARIA EN LA QUE SE INSPIRA LUPIN.',
-    editorial:  'Hispana',
-    idioma:  'Español',
-    paginas:  400,
+    editorial:  'Ayui',
+    idioma:  'Ingles',
+    paginas:  300,
     imagen:  '../BNSPrueba1/image/ISBN-002.jpg'
 },
 {
@@ -23,9 +23,9 @@ const libros = [{
     titulo: 'MEAL PREP - SI NOS ORGANIZAMOS COMEMOS TODOS',
     autor:  'Paulina Cocina',
     resena: 'Hace un tiempo decidí filmar videos de cómo preparar comida para guardar y tener a mano cuando no tengo tiempo o ganas de cocinar. Este “arte” de la organización de comidas se llama meal prep y lo practico hace años. Así diseñé “sesiones” de recetas que balancean practicidad, salud y sabor: de carnes, de panes y pizzas, de viandas, de legumbres y hasta cómo “adelantar pasos” para una picada o cumpleaños. Meal prep es un libro práctico, lleno de datos y tips que fui recolectando por años, como guardar pesto en cubeteras o congelar las tartas ya armadas.',
-    editorial:  'Hispana',
-    idioma:  'Español',
-    paginas:  400,
+    editorial:  'Monteverde',
+    idioma:  'Frances',
+    paginas:  280,
     imagen:  '../BNSPrueba1/image/ISBN-003.jpg'
 },
 {
@@ -33,9 +33,9 @@ const libros = [{
     titulo: 'SIETE FUEGOS',
     autor:  'Francis Mallmann',
     resena: 'El chef más genial de Argentina comparte la esencia de su cocina de fuegos. Con pasión y autenticidad, despliega las recetas y las historias que recorren su larga trayectoria como cocinero, dueño de restaurantes y estrella de la televisión en toda Latinoamérica. El libro definitivo sobre su cocina argentina. Francis Mallmann es, sin duda, el chef más genial de la Argentina. Es también, desde luego, el más famoso, el más original y el de mayor éxito, tanto por su trayectoria como cocinero y dueño de restaurantes como por los premios que ha recibido. Uno de ellos, el Gran Premio del Arte y la Ciencia de la Cocina (que entrega la Academia Internacional de Gastronomía de París), le fue otorgado en 1996 (por primera vez a un chef no europeo) por un jurado conformado por los mejores cocineros del mundo.',
-    editorial:  'Hispana',
-    idioma:  'Español',
-    paginas:  400,
+    editorial:  'Oceano',
+    idioma:  'Italiano',
+    paginas:  630,
     imagen:  '../BNSPrueba1/image/ISBN-004.jpeg'
 },
 {
@@ -43,9 +43,9 @@ const libros = [{
     titulo: 'UNA AVENTURA DE MEDITACION VIPASSANA',
     autor:  'Tato Lopez',
     resena: 'El curso ha finalizado y observo la sala de meditación vacía. Diez días atrás entré aquí sin tener idea de lo que estaba haciendo. Me cuesta creer todo lo que transité sin moverme de este lugar. Meditar no resultó ser una actividad vegetal donde experimentar estados extrasensoriales en un mundo etéreo, y sí una de autodisciplina y autoobservación. La vipassana puede ser un atlas de la mente y la estructura física, una brújula para orientarnos en el caos del mundo interior, un mapa de ruta sobre el cual tomar decisiones',
-    editorial:  'Hispana',
+    editorial:  'Atlantica',
     idioma:  'Español',
-    paginas:  400,
+    paginas:  520,
     imagen:  '../BNSPrueba1/image/ISBN-005.jpeg'
  }
 ];
@@ -61,9 +61,9 @@ var usuarios = [
      {  mail:   'luis',
         password: 'luis',
         usuario:  'Luishi',
-        nombre: '',
-        direccion: '',
-        telefono: ' '
+        nombre: 'Luis Lopez',
+        direccion: '18 de Julio 2030',
+        telefono: '099123456'
      }
     ];
 
