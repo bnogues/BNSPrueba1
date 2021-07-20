@@ -1,3 +1,8 @@
+// const url = document.currentScript.src;
+// console.log(url);
+// console.log(url.hostname); // "www.example.com"
+// console.log(url.pathname); // "/cats"
+
 const libros = [{
     isbn:   001,
     titulo: 'EL OSCURO ADIÓS DE TERESA LANZA',
@@ -86,6 +91,36 @@ var usuarios = [
     //siguiente operacion:
     //Disponibles = Libros.cantidad - Suma de Libros Prestados - Suma de Libros Devueltos
 
+    //Control si entra por primera vez a la Pagina -  si es asi graba variables en SessionStorage
+    // let usuario2 = JSON.parse(sessionStorage.getItem('Usuarioconectado')); 
+    // if (usuario2 === null) {
+if (JSON.parse(sessionStorage.getItem('Usuarioconectado'))===null) {       
+        //Entra por primera vez grabo las Variables
+        let usuario = 'NINGUNO';
+        sessionStorage.setItem('Usuarioconectado', JSON.stringify({user:usuario}));
+
+        var usuarios = [
+            {   mail:     'berna',
+                password: 'berna',
+                usuario:  'Bernardo',
+                nombre:   'Bernardo Nogues',
+                direccion: 'sssss',
+                telefono: '0123456 '
+             },
+             {  mail:   'luis',
+                password: 'luis',
+                usuario:  'Luishi',
+                nombre: '',
+                direccion: '',
+                telefono: ' '
+             }
+            ];
+        
+        //    
+        sessionStorage.setItem('ListaUsuarios', JSON.stringify({usuarios}));
+    }; 
+  
+
 
 
 function generarLibros(data) {
@@ -95,8 +130,8 @@ function generarLibros(data) {
 }
 
 function generadorGridCard(data, position) {
-    // let librosContainer = document.getElementById(position);
-    let productosContainer = document.getElementById(position);
+    let librosContainer = document.getElementById(position);
+    // let productosContainer = document.getElementById(position);
 
     data.forEach(element => {
         let DOMh5Node = document.createElement('h5');

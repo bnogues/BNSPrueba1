@@ -9,7 +9,6 @@ function isValidEmail(email) {
 }
 
 function isValidPassword(password) {
-    // console.log(password.length);
     if (password.length > 0) {
         return true;
     }
@@ -30,23 +29,10 @@ enviar.addEventListener('click', function(e) {
     let v_direccion = document.getElementById('direccion').value;
     let v_telefono  = document.getElementById('telefono').value;
 
-console.log(v_mail);
-// console.log(usuarios);
-
     
     if (isValidEmail(v_mail) && isValidPassword(v_password)) 
     {
-        errorusuario.style.display = 'none';   
-
-// Inserto Estaticamente Elemento en Arrray "usuarios"   
-        // usuarios.push(         
-        //    {    mail:     'jose',
-        //         password: 'jojo',
-        //         usuario:  'Pepe',
-        //         nombre:   'Jose Luis',
-        //         direccion: 'rrrrr',
-        //         telefono: '789 ',
-        //     } );
+            errorusuario.style.display = 'none';   
 
             usuarios.push(         
                 {    mail:      v_mail,
@@ -55,56 +41,42 @@ console.log(v_mail);
                      nombre:    v_nombre,
                      direccion: v_direccion,
                      telefono:  v_telefono,
-                 } );
-     
+                 } ); 
 
-
-// el elemento insertado con el push,  el Console lo muestar antes y despues del push
-console.log(usuarios);
-
-sessionStorage.ListaUsuarios4 = usuarios;
-
-// //recuperar array 
-// let usuariosobj = JSON.parse(sessionStorage.getItem('ListaUsuarios')); 
-// //console.log(usuarios3);
-
-// //You can convert its values to an array by doing:  Pagina 136 Manual Javascript
-// var usuarios3 = Object.keys(usuariosobj)
-// .map(function(key) { return usuariosobj[key]; });
-
-
-// Prueba 100
-let usuariosobj = JSON.parse(sessionStorage.getItem('ListaUsuarios')); 
-usuarios3 = usuariosobj;
-console.log(usuarios3);
-
-// Inserto Estaticamente Elemento en Arrray "usuarios3"   
-// usuarios3.push(         
-//     {    mail:     'jose',
-//          password: 'jojo',
-//          usuario:  'Pepe',
-//          nombre:   'Jose Luis',
-//          direccion: 'rrrrr',
-//          telefono: '789 ',
-//      } );
-// console.log(usuarios3);
-
-usuarios3.push(         
-    {    mail:      v_mail,
-         password:  v_password,
-         usuario:   v_usuario,
-         nombre:    v_nombre,
-         direccion: v_direccion,
-         telefono:  v_telefono,
-     } );
-console.log(usuarios3);     
+            // el elemento insertado con el push,  el Console lo muestar antes y despues del push
+            console.log(usuarios);
 
 
 
-//volver a grabar el Array
-//usuario2 = usuarios;
-//console.log(usuarios2);
-sessionStorage.setItem('ListaUsuarios', JSON.stringify({usuarios3}));
+            //INSERTAR EN ARRAY DE SESSIONSTORAGE
+            //*********************************** */
+            //RECUPERAR EL ARRAY QUE GUARDE EN SESSIONSTORAGE  'ListaUsuarios'
+            let usuariosobj = JSON.parse(sessionStorage.getItem('ListaUsuarios')); 
+            console.log(usuariosobj);
+
+
+            // Inserto Estaticamente Elemento en Arrray "usuariosobj"   
+            // usuariosobj.push(         
+            //     {    mail:     'jose',
+            //          password: 'jojo',
+            //          usuario:  'Pepe',
+            //          nombre:   'Jose Luis',
+            //          direccion: 'rrrrr',
+            //          telefono: '789 ',
+            //      } );
+            // console.log(usuarios3);
+
+            // Inserto Dinamicamente Elemento en Array "usuariosobj"
+            // usuariosobj.push(         
+            //     {    mail:      v_mail,
+            //         password:  v_password,
+            //         usuario:   v_usuario,
+            //         nombre:    v_nombre,
+            //         direccion: v_direccion,
+            //         telefono:  v_telefono,
+            //     } );
+            // console.log(usuariosobj);     
+
 
     }
     else 
