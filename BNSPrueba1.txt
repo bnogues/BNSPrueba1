@@ -1,0 +1,18 @@
+Inicio             -- index.html   	 // Mostrar Libros con campo "Disponible para Prestamo" = X + Agregar al Carrito y Confirmar
+Libros 		   -- que es esta opcion ? 
+Preguntas Frecuentes -- falta       	 // 
+Contacto           -- contacto.html	 //  Enviar Mensajes a Biblioteca  --- falta Validaciones,  falta enviar a la Consola
+Gestionar Libros   -- libro.htmp         //  Alta de nuevos libros  (habria que hacer Baja, Modificacion y Listado)
+Reporte            --                    //  Reporte de Libros -- falta Tabla + filtro Disponibles para Prestamo
+Login              --    	         //  Login al Sistema y Registro de nuevo usuario  -- falta
+Instrucciones	   -- instrucciones.html //  Instrucciones de la Biblioteca -- falta boton + falta imagen de fondo
+Search             --   	   	 //  Busqueda de Libros  -- falta todo
+
+
+Libros //   Disponible debe ser un   Checkbox
+Libros //   Validaciones (falta el archivo Libros.js)
+
+
+Gestionar Libros 
+
+

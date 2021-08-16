@@ -56,18 +56,14 @@ console.log(Autorizado);
                alert("No Existe Mail/Contraseña");   
         }
 
-        // let SeMail = JSON.parse(sessionStorage.getItem('SesionMail')); 
-        // let SePass = JSON.parse(sessionStorage.getItem('SesionPass'));
-        
-        // console.log(SeMail);
-        // console.log(SePass);
+
 
     }
     else 
     { 
         errorlogin.style.display = 'block';
     }
-    // return;
+   
     
 
 

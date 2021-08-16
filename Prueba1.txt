@@ -1,0 +1,233 @@
+Ejercicio Prueba01  --  Proyecto BNSPrueba1
+
+Enviar Invitacion GitHub a   Pedroed89 o  mandar mail con camino del Proyecto.   https://github.com/bnogues/BNSPrueba1.git
+
+1 Pagina Principal con un Menu (por lo menos 3 opciones)
+      Cada opcion debe mandar a otra Pagina.   Implementar todas las paginas
+      En las paginas incluir por lo menos:       1 pagina "Login"  implementar Validaciones (validacion minimia que los campos no esten vacios) y enviar datos a Console
+                      				 1 pagina "Registro" implementar Validaciones (validacion minimia que los campos no esten vacios) y enviar datos a Console
+						 1 pagina "   "
+
+Credenciales (de Login) deben ser almacenadas en Variables del (Sistema),  se debe validar el Login y si es Ok entonces dejar continuar
+
+Tiene que mostrar  Scroll  de Articulos
+Tiene que mostrar  Filtro
+
+Html puede tener fijo, pero que no se repita, si se repite Generacion de Contenido en forma dinamica en cada pagina !!!  html generado en JS
+
+Arreglo,  Objetos,  Funciones
+
+JS  hay una Funcion que permite hacer Navegacion entre Paginas por medio de JavaScrpit .. solo para el Login (1.56.00) !!!!
+!!??  buscarla
+
+(1.59.45)  GIT    Crear un nuevo REPOSITORY
+
+
+DUDAS
+******
+'Usuario Conectado'  Varibble publica de toda la pagina que se definia por unica vez al principio y se modifique cada vez que se hace un Login.    donde y como se define por unica vez?
+al ingresar se carga con vacia,  al hacer Login y Validar en Array Usuarios, se carga con USERNAME.  Al hacer Logout (no esta implementado) se carga con VACIO
+
+INDEX.HTML  Como se cargan las imagenes jpeg.
+
+Como ver el contenido de una variable SessionStorage ... con Console.log no me funciono,  me dice que no hay una variable con ese nombre
+
+USUARIOS  console.log(usuarios)  muestra lo mismo antes y despues del Push 
+
+
+
+
+ME FALTA
+********
+
+
+
+--Alta de Usuario, agregar al Array y que se vea en el Reporte de usuarios.  HECHO,  el problema que al cambiar de pagina se borra. 
+   HECHO en STORAGESESSION pero lo recupero y al grabar lo grabo como una MATRIZ ... no encontre como solucionarlo
+
+
+--Form  "Libros"  -- para cargar Libros nuevos -- DROPDOWN MENU :  Alta/Baja/Modificacion  //ABM del Array // Validaciones
+--Busquedad y Filtro
+--Solicitud de Prestamo  idem  CARRITO
+
+
+STOREIT //  FALTA PULL
+--Preguntas Frecuentes -- 
+--Search
+--CARRITO
+
+
+
+
+
+
+CREATE TABLE `clase15`.`tabla01` ( `cedula` INT(11) NULL , `nombres` VARCHAR(50) NOT NULL , `apellidos` VARCHAR(50) NOT NULL , UNIQUE `Tabla01cedula` (`cedula`)) ENGINE = InnoDB;
+
+HECHO
+*****
+--Texto "Usuario Conectado"  +  color de fondo al contenedor
+--Salir o Logout  -- vaciar el usuario conectado
+--Reporte  -- me faltan columnas
+--FOTOS !!!
+--Navegacion entre paginas
+
+PEDRO
+1.Script.js   linea 175           listalibros.appendChild(DOMcolNode);  // en vez de listalibros deberia ir librosContainer, pero da error y no funciona
+2.Login.js                        como hago un "push"  al  SesseionStorag "ListaUsuarios" (Array:  usuarios3)
+3.--en HTML  se puede poner el cabeza y el footer  en archivos .html como en PHP y despues  usar el  INCLUDE o algo parecido
+4. Navegacion entre paginas lo hice con Direccion Absoluta //  Como se hace ?  Funcion ?
+...
+
+
+
+
+document.div.insertbefore(hr, document.h1.firstChild);
+
+
+var contenido = document.getElementsByClassName('contenido');
+var hr = document.CreatElement('hr');
+var p = document.getElementBy
+contenido.insertBefore(hr, document.body.p);
+
+
+02/07  consultas a Pedro
+//  clave de tabla PRESTAMOS por 2 campos esta bien definida
+//  Contacto:  mandar mail ??
+//  Libros:  imagenes
+//  Login: imagen biblioteca
+//  Login: JavaScrip  .js   como se incorpora al  .php ?
+
+
+PROYECTO  //  PENDIENTES
+* CRUD USUARIOS - Validar mail
+* Pagina CONTACTO
+* CRUD LIBROS
+* Pagina PREGUNTAS FRECUENTES
+* LOGIN / LOGOUT
+* Pagina PRINCIPAL PRESTAMOS como Carrito pero un solo boton "PRESTAMO"  que vaya a una Pagina que haga todas las Validaciones - si no hay Stock que diga cuando devuelven uno
+* SEARCH de Libros por diferentes Campos
+* DEVOLUCION de Libros 
+* RESERVA de Libros  PARA LO ULTIMO // impacta en el Prestamo y en la Devolucion
+* CONSULTAS //  Tabla consulta de Todos los Libros  con columna:  Total / Prestados --   CON FILTRO POR USUARIO
+   
+
+* Imagenes // como se guardan ??
+* Login
+* Validaciones
+* Estructura Carpetas
+* Filtros Varios
+* Envio de mail
+* Objetos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select * from producto where cantidad >= 3 and cantidad <= 5
+
+select * from producto where precio >= 10 and precio <= 40
+
+select * from producto where nombre >= 'J' and nombre <= 'K'
+
+select sum(cantidad) from producto where precio > 35
+
+select sum(cantidad * precio) from producto
+
+
+02/08/2021
+https://github.com/pedroed89/crud.git
+
+
+
+PROYECTO 
+LIBRERIA PARA PRESTAMOS DE LIBROS
+
+El Proyecto consiste en una Biblioteca para prestamos de Libros.
+
+Cualquier persona, sin necesidad de Identificarse, puede entrar a la Pagina y ver los Libros que hay disponibles para prestar y entrar a Contactos para enviar consultas. 
+
+Para solicitar un Libro prestado, como para el resto de las Opciones del Menu, el Usuario si tiene que estar identificado.  Para esto hay una opcion de Registro y una Opcion de Login.
+
+El usuario identificado tiene opciones para Prestamo de Libros y Devoluciones de Libros.   Ademas puede acceder a la opcion de Preguntas Frecuentes.
+
+Los Usuarios Logueados y Clasificado como Administradores, pueden hacer Alta, Baja y Modificacion de Libros y Usuarios.  
+
+Un Libro se presta por 5 dias de plazo.  Luego que pasan los 10 dias, el prestamo estara vencido.
+
+Cada usuario, en un momento podra tener hasta 3 Libros en Prestamo. 
+
+Opcion de Consulta de Libros Prestados que tendra los siguientes filtros:
+            Usuario    (poder filtrar un solo usuario)		
+            Prestamos Vencidos (si, no,  ambos)
+
+Opcion de Consulta de Libros Devueltos, con filtro por Usuario.
+ 
+Opcion de Contactos para enviar consultas a los Bibliotecarios (para usuarios logueados y no logueados)
+
+Opcion de Preguntas Frecuentes (para usuarios logueados)
+
+
+Detalle Opciones de la Pagina
+
+CRUD de USUARIOS -- incluye Validaciones de datos
+CRUD de Libros   -- incluye Validaciones de datos, incluye una imagen del Libro y Cantidad de Libros que pertenecen a la Biblioteca
+CONSULTA	 -- Tabla con Libros Prestados (sin vencer y vencidos
+LOGIN y LOGOUT de Usuarios -- opcion de que un usuario se identifique como usuario en la pagina
+CONTACTO         -- opcion para enviar Consultas a la Biblioteca (opcion para usuarios identificados o no identificados)
+PRESTAMO         -- Prestamo de Libros // se debe controlar que el Usuario puede tener prestado hasta 3 libros, de cada libro puede pedir prestado hasta 1 solo ejemplar,
+                    No puede tener libros vencidos sin devolver
+DEVOLUCION       -- Devolver Libros que el usuario tiene prestado
+
+
+
+ 
+
+* CRUD USUARIOS - Validar mail
+* Pagina CONTACTO
+* CRUD LIBROS
+* Pagina PREGUNTAS FRECUENTES
+* LOGIN / LOGOUT
+* Pagina PRINCIPAL PRESTAMOS como Carrito pero un solo boton "PRESTAMO"  que vaya a una Pagina que haga todas las Validaciones - si no hay Stock que diga cuando devuelven uno
+* SEARCH de Libros por diferentes Campos
+* DEVOLUCION de Libros 
+* RESERVA de Libros  PARA LO ULTIMO // impacta en el Prestamo y en la Devolucion
+* CONSULTAS //  Tabla consulta de Todos los Libros  con columna:  Total / Prestados --   CON FILTRO POR USUARIO
+
+
+Consultas para el Lunes 16/08
+CONTACTO.PHP / LINEA 20 /  tuve que poner un SCRIPT en el medio del html porque al final no me funciona  ??
+LIBRO.PHP / Linea 23 / filtrar_func(event) en FOOTER.PHP no se ejecuta.  Si lo copio en LIBRO.PHP si se ejecuta
+          /  que no se refresque el click en Filtro 
+INDEX.PHP / Linea 89 / agregar un elemento al Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
