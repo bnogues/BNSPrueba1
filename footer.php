@@ -9,27 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
     <script>
-      document.getElementById("test").addEventListener('click',function(e){
-        swal({
-          title: "Are you sure?",
-          text: "You will not be able to recover this imaginary file!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonClass: "btn-danger",
-          confirmButtonText: "Yes, delete it!",
-          cancelButtonText: "No, cancel plx!",
-          closeOnConfirm: false,
-          closeOnCancel: false
-        },
-        function(isConfirm) {
-          if (isConfirm) {
-            swal("Deleted!", "Your imaginary file has been deleted.", "success");
-          } else {
-            swal("Cancelled", "Your imaginary file is safe :)", "error");
-          }
-        });
-      });
-
 
       function clickHandler(e){
         e.preventDefault();
@@ -70,14 +49,13 @@ function isValidMensaje(mensaje) {
     }
     return false;
 }
+
 function clickHandler2(e){
        e.preventDefault();
-alert('se ha dado click al boton')     ;   
-// echo "estoy en click";
-        if (confirm("Confirma el Envio!")) {      
-
+        alert('se ha dado click al boton');   
+        if(confirm("Confirma el Envio!")) { 
+          var errorcontacto = document.getElementById('errorcontacto');     
             errorcontacto.style.display = 'none'
-
             let mail = document.getElementById('mail').value;
             let mensaje = document.getElementById('mensaje').value;
              
@@ -95,7 +73,7 @@ alert('se ha dado click al boton')     ;
             }
             else 
             { 
-                // errorcontacto.style.display = 'block';
+                 errorcontacto.style.display = 'block';
                 swal("Su Consulta no es valida !");
 
             }
@@ -111,9 +89,9 @@ alert('se ha dado click al boton')     ;
           else {
             swal("Cancelado", "Su consulta no fue enviado :)", "error");
           }
-        });
-      }
-
+        };
+       
+    
       function filtrar_func(event){
         event.preventDefault();
         var selectedValue = document.querySelector('input[name="criterio"]:checked').id  
