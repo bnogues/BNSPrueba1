@@ -1,11 +1,10 @@
 <?php
 include('header.php');
 ?>
+
 <div class="containerLibro">
-  <h1>Mantenimiento de Libros</h1>
-  <!-- Flexbox container for aligning the toasts -->
-  <a href="libro-crear.php" class="btn btn-primary">Crear</a>
-  
+  <h1>Prestamo de Libros</h1>
+    
 <!-- FILTRO -->
   <form id="filtrarForm" action="libro.php" method="get">
     <label for="filtro">Filtro</label>
@@ -44,7 +43,7 @@ include('header.php');
       <th scope="col">Editorial</th>
       <th scope="col">Idioma</th>
       <th scope="col">Paginas</th>
-      <th scope="col">Total</th>
+      <th scope="col">Disponibles</th>
       <th scope="col">Imagen</th>      
     </tr>
   </thead>
@@ -82,6 +81,8 @@ include('header.php');
 
     if ($response->num_rows > 0) {
         while($row = $response->fetch_assoc()) {
+
+            
             echo '<tr id="'.$row["isbn"].'">
             <td>'.$row["isbn"].'</td>        
             <td>'.$row["titulo"].'</td>
@@ -93,16 +94,14 @@ include('header.php');
             <td>'.$row["total"].'</td>
             <td><img style="width:50px;" src="image/'.$row["imagen"].'"></td>           
             <td style="display:flex">
-            <form action="libro-crear.php" method="get">
-            <input type="hidden" value="'.$row["isbn"].'" name="id">
-            <button type="submit" class="btn btn-primary">
-            Editar</button>
+
+            <form id="prestarForm'.$row["isbn"].'" action="prestamo-valid.php" method="post">
+              <input name="id" type="hidden" value="'.$row["isbn"].'">
+              <button type="submit" id="prestar'.$row["isbn"].'" onclick="clickHandler3(event)" class="btn btn-danger">
+              Prestar</button>
+ 
             </form>
-            <form id="deleteForm'.$row["isbn"].'" action="libro-delete.php" method="post">
-            <input name="id" type="hidden" value="'.$row["isbn"].'">
-            <button type="submit" id="delete'.$row["isbn"].'" onclick="clickHandler(event)" class="btn btn-danger">
-            Eliminar</button>
-            </form>           
+
             </td>
              </tr>';              
         }
@@ -115,3 +114,5 @@ include('header.php');
   </div>
 
   <?php include('footer.php'); ?>
+
+

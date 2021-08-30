@@ -21,6 +21,7 @@ include('header.php');
       <th scope="col">Direccion</th>
       <th scope="col">Telefono</th>
       <th scope="col">Mail</th>
+      <th scope="col">Pass</th>
     </tr>
   </thead>
   <tbody>
@@ -29,10 +30,10 @@ include('header.php');
 
     if (isset($_POST["filtro"]) && strlen($_POST["filtro"])>0) {
       $termino = $_POST["filtro"];
-      $q = "SELECT id,usuario,nombre,direccion,telefono,mail FROM usuario where nombre like '%$termino%'";
+      $q = "SELECT id,usuario,nombre,direccion,telefono,mail,contrasena FROM usuario where nombre like '%$termino%'";
     }
     else {
-       $q = "SELECT id,usuario,nombre,direccion,telefono,mail FROM usuario";
+       $q = "SELECT id,usuario,nombre,direccion,telefono,mail,contrasena FROM usuario";
     }
     $response = $connection->query($q);
 
@@ -44,6 +45,7 @@ include('header.php');
             <td>'.$row["direccion"].'</td>
             <td>'.$row["telefono"].'</td>
             <td>'.$row["mail"].'</td>
+            <td>'.$row["contrasena"].'</td>
             <td style="display:flex">
             <form action="usuario-crear.php" method="get">
             <input type="hidden" value="'.$row["id"].'" name="id">

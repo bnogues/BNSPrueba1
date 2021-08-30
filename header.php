@@ -12,6 +12,22 @@
     <title>Libreria</title>
   </head>
   <body>
+
+  <!-- Login -->
+  <?php
+
+session_start();
+if(!isset($_SESSION['login']))
+{
+  $_SESSION['login'] = false;
+  $_SESSION['username'] = 'Invitado';
+}
+
+      // Login
+$user = isset($_SESSION['username'])?$_SESSION['username']:"";
+$my_Usr = "Usuario: ".  $user;
+  ?>
+
   <div class="container-fluid">
     <a class="navbar-brand" href="#">LIBRERIA "Del Taller"</a>
   </div>    
@@ -26,32 +42,38 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/BNSPrueba1">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="prestamo.php">Prestamo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="devolucion.php">Devolucion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="consulta.php">Consulta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="libro.php">Libros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="usuario.php">Usuarios</a>
-        </li>
+        <?php 
+          if($_SESSION['login'] === true)
+          {
+            echo '<li class="nav-item">
+                  <a class="nav-link" href="prestamo.php">Prestamo</a>
+                  </li>'; 
+            echo '<li class="nav-item">
+                  <a class="nav-link" href="devolucion.php">Devolucion</a>
+                  </li>';
+            echo '<li class="nav-item">
+                  <a class="nav-link" href="consulta.php">Consulta</a>
+                  </li>';
+          }
+        ?>
+        <!-- Las siguientes dos opciones mostrar solo si esta conectado y es Administrador         -->
+        <?php 
+          if($_SESSION['login'] === true && $_SESSION['username'] == 'BERNA' )
+          {
+        
+            echo '<li class="nav-item">
+                  <a class="nav-link" href="libro.php">Libros</a>
+                  </li>';
+            echo '<li class="nav-item">
+                  <a class="nav-link" href="usuario.php">Usuarios</a>
+                  </li>';
+          }
+        ?>
         <li class="nav-item">
           <a class="nav-link" href="contacto.php">Contacto</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="pregunta.php">Preg.Frecuentes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.php">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="instruccion.php">Instrucciones</a>
@@ -69,15 +91,48 @@
 <!-- <div class="container-fluid"> -->
 <div class="d-flex">
     <div class="d-flex">
-        <p>"Usuario Conectado:"</p>
-        <div id="usuarioconectado"> </div>
+        <!-- Login -->
+        <?php $my_Usr = "Usuario: ".  $user;?>
+        <h4><?php echo $my_Usr;?></h4>;       
+
+        <!-- <p>"Usuario Conectado:"</p>
+        <div id="usuarioconectado"> </div> -->
     </div>
     <a  id="btnCarrito"style="margin: 0px 200px;visibility: hidden;" type="button" class="btn btn-primary bg-dark">
                     Carrito <span class="badge bg-secondary">4</span>
     </a>
-    <form class="d-flex">
+    <!-- <form class="d-flex"> -->
+    <form action="usuario-crear.php" method="post" class="d-flex"> 
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-        <button class="btn btn-outline-success" type="button">Registro</button>
+        <?php 
+          if($_SESSION['login'] != true)
+          {
+            echo '<button class="btn btn-outline-success" type="submit">Registro</button>';
+ 
+          }
+         ?>     
+        <a
+          <?php
+          if($_SESSION['login']){
+            echo 'href="login-valid.php"';
+          }
+          else{
+          
+          echo 'href="login.php"';
+          }
+          
+          ?>
+          class="btn btn-outline-success" type="button">
+          <?php 
+      
+          if($_SESSION['login']){
+            echo('Logout');
+          }else{
+            echo('Login');
+          }
+          ?>
+        </a>
+
     </form>  
 </div>  

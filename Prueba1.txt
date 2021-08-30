@@ -198,11 +198,11 @@ DEVOLUCION       -- Devolver Libros que el usuario tiene prestado
 
  
 
-* CRUD USUARIOS - Validar mail
-* Pagina CONTACTO
-* CRUD LIBROS
+***** CRUD USUARIOS - Validar mail
+***** Pagina CONTACTO
+***** CRUD LIBROS
 * Pagina PREGUNTAS FRECUENTES
-* LOGIN / LOGOUT
+** LOGIN / LOGOUT
 * Pagina PRINCIPAL PRESTAMOS como Carrito pero un solo boton "PRESTAMO"  que vaya a una Pagina que haga todas las Validaciones - si no hay Stock que diga cuando devuelven uno
 * SEARCH de Libros por diferentes Campos
 * DEVOLUCION de Libros 
@@ -210,24 +210,72 @@ DEVOLUCION       -- Devolver Libros que el usuario tiene prestado
 * CONSULTAS //  Tabla consulta de Todos los Libros  con columna:  Total / Prestados --   CON FILTRO POR USUARIO
 
 
-Consultas para el Lunes 16/08
-CONTACTO.PHP / LINEA 20 /  tuve que poner un SCRIPT en el medio del html porque al final no me funciona  ??
+Consultas para el Lunes 23/08
+Formato  FECHAS
+INDEX.PHP / Carga Libros del ARRAY en vez de cargar de la Tabla LIBRO
 LIBRO.PHP / Linea 23 / filtrar_func(event) en FOOTER.PHP no se ejecuta.  Si lo copio en LIBRO.PHP si se ejecuta
           /  que no se refresque el click en Filtro 
-INDEX.PHP / Linea 89 / agregar un elemento al Array
+FOOTER.PHP / clickHandler3  no ejecuta prestamo-valid.php  ?????
+
+
+18/08  
+*****
+1.Ver Clase 25  para ocultar y visualizar Opciones del Menu si estoy Logueado o no
+2.Pagina Registro convertir de html
+3.Login:   Pedir  Credenciales y Validarlas contra Tabla Usuario //  (eliminar ADMIN en Hardcode)
+
+4.INDEX.PHP /  Leer desde la Tabla de Libros y cargar (Linea 89 / agregar un elemento al Array) --- 
+4.1 INDEX.PHP  // sacar el SEARCH del Header y poner Filtros
+
+5.Prestamo de Libro
+6.Devolucion de Libro
+7.Consulta de Todos los Libros (Total, Prestados, Vencidos)
+8.Consulta Historia de un Usuario 
+
+
+libro-delete.php  borrar porque el delete se hace en el control del click  no en este form
+
+
+30/08   Consultas Pedro
+***********************
+1-- INDEX.PHP  2 libros registrados no se ven... arma toda las lineas juntas ...(1 sola linea let en vez de una por libro)
+D.  "Preguntas Frecuentes"  - PEDRO // el mismo error de A0,  hay dos Preguntas y las concatena y no sale ninguna
+
+2-- "prestamo-valid.php"  desde donde se invoca: desde "function clickHandler3"  o desde action="prestamo-valid.php" (linea 98  prestamo.php)  ??
+
+2-- Mensajes desplegables dentro de PHP  (el echo dentro de PHP no se muestra en la pantalla.  estoy haciendo DIE() para verlos)
+3-- Tabla PRESTAMO  no quedo EDITABLE (que se pueda modificar o borrar un registro) 
+4-- Fecha de hoy  --  pone 1 dia mas ??
+5-- "login-valid.php" -- linea 20  el SELECT ..WHERE no funciona, no encuentra el registro.... hice SELECT *  y despues dentro del while un IF  ??
+5B- "login-valid.php" -- linea 45  Mensaje dentro de un PHP
+E2- "usuario-crear.php --  password es palabra reservada -- en los select queda pintado de azul 
+
+
+HACER
+*****
+A0. "index.php" -- que muestre mas de un libro -- PEDRO !!!
+D.  "Preguntas Frecuentes"  - PEDRO // el mismo error de A0,  hay dos Preguntas y las concatena y no sale ninguna
+
+A0. "Footer.php" linea 101 .. error al ejecutar  "prestamo-valid.php"   PEDRO ??
+
+B.  "Devolucion-valid.php"  probar -- primero arreglar A0
+
+H.  "Index.php" //  implementar el "Search"  u otro Filtro generico 
 
 
 
 
-
-
-
-
-
-
-
-
-
+Hecho
+*****
+A1.  Tabla "prestamo"  borrar y hacer de nuevo
+B.   "Devolucion-valid.php"  hecho
+E1.  "Login y Registro" -- completar validando password, validando usuario y cargando usuario en lugar del mail
+E2.  "Registro"  -- hacer form de registro .. con password incluido
+E3.  Usuarios -- agregar password.
+F.   !!!!!!Opciones del Menu Visibles y No Visibles - Menu Libros y Usuarios mostrar solo si es Administrador o un Usuario Fijo
+G.   "Consulta"  Historia de un Usuario
+C.   "Instruccionoes" // reescribir
+I.  Borrar Login2.php y Login3.php  solo quedan  Login.php y Login-valid.php
 
 
 

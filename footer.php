@@ -91,13 +91,54 @@ function clickHandler2(e){
           }
         };
        
-    
+function clickHandler3(e){
+        e.preventDefault();
+        alert('se ha dado click al boton PRESTAR LIBRO');   
+
+
+        if(confirm("Confirma el PRESTAMO ?")) { 
+
+              document.forms["prestamo-valid.php"].submit();
+
+
+                // swal("Envio", "Su consulta fue enviada", "Ok");
+                // swal("Su Consulta no es valida !");
+                // swal("Cancelado", "Su consulta no fue enviado :)", "error");
+           
+          } 
+}
+
       function filtrar_func(event){
         event.preventDefault();
         var selectedValue = document.querySelector('input[name="criterio"]:checked').id  
         alert("Hola");
         document.getElementById('criterioValor').value = selectedValue;
         document.getElementById('filtrarForm').submit();
+      }
+
+
+      function clickHandler5(e){
+        e.preventDefault();
+        swal({
+          title: "Are you sure?",
+          text: "You will not be able to recover this imaginary file!"+ e.target.id,
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonClass: "btn-danger",
+          confirmButtonText: "Yes!",
+          cancelButtonText: "No",
+          closeOnConfirm: false,
+          closeOnCancel: false
+        },
+        function(isConfirm) {
+          if (isConfirm) {
+            let form = document.getElementById('deleteForm'+e.target.id.replace('delete',''));
+            form.submit();
+            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+          } else {
+            swal("Cancelled", "Your imaginary file is safe :)", "error");
+          }
+        });
       }
 
     </script>

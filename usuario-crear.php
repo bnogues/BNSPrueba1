@@ -8,16 +8,18 @@ $nombre = "";
 $direccion = "";
 $telefono = "";
 $mail = "";
+$pass = "";
 include('db.php'); 
-    $q = "SELECT id,usuario,nombre,direccion,telefono,mail FROM usuario WHERE id = $id";
+    $q = "SELECT id,usuario,contrasena,nombre,direccion,telefono,mail FROM usuario WHERE id = $id";
     $response = $connection->query($q);
     if ($response->num_rows > 0) {
       while($row = $response->fetch_assoc()) {
         $usuario = $row['usuario'];
-        $nombre = $row['nombre'];
+        $pass    = $row['contrasena'];
+        $nombre  = $row['nombre'];
         $direccion = $row['direccion'];
-        $telefono =$row['telefono']; 
-        $mail =$row['mail'];          
+        $telefono  = $row['telefono']; 
+        $mail      = $row['mail'];            
       }
   }
 
@@ -56,6 +58,10 @@ include('db.php');
   <div class="col-md-6">
     <label for="mail" class="form-label">Mail</label>
     <textarea type="text" class="form-control" id="mail" name="mail" placeholder=""><?php echo $mail;?></textarea>
+  </div>
+  <div class="col-md-6">
+    <label for="pass" class="form-label">Contraseña</label>
+    <input type="text" class="form-control" value="<?php echo $pass;?>" id="pass" name="pass">
   </div>
 
   <div class="col-12">
