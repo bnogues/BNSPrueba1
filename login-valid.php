@@ -74,6 +74,8 @@ else
 // echo "$password";
 // echo "$usuario";
 // echo "$contrasena";
+// $usr = $_SESSION['username'] ;
+// echo $usr;
 // die();
 
 header('Location:index.php');

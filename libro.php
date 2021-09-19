@@ -1,18 +1,33 @@
 <?php
 include('header.php');
+
+$filtro = "";
+if(isset($_GET['filtro']))
+{
+  $filtro = $_GET['filtro'];
+}
 ?>
+
 <div class="containerLibro">
   <h1>Mantenimiento de Libros</h1>
   <!-- Flexbox container for aligning the toasts -->
   <a href="libro-crear.php" class="btn btn-primary">Crear</a>
   
 <!-- FILTRO -->
-  <form id="filtrarForm" action="libro.php" method="get">
-    <label for="filtro">Filtro</label>
-    <input type="text" name="filtro" id="filtro" value="<?php echo isset($_POST["filtro"])?$_POST["filtro"]:'';  ?>">
+<br>
+    <div class="row">
+      <div class="col-4" >
+        <br>
+  <form id="filtrarForm" action="libro.php" method="get" style="display: flex;flex-direction:row">
+    <!-- <label for="filtro">Filtro</label>
+    <input type="text" name="filtro" id="filtro" value="
+    "> -->
        
+    <input type="text" name="filtro" value="<?php echo isset($_GET['filtro'])? $_GET['filtro'] : "" ?>" class="form-control" placeholder="Filtrar">
+    <button type="submit" href="libro.php" class="btn btn-danger">Filtrar</button>
+
     <!-- Radio Button -->
-    <label for="isbn">Isbn</label>
+    <!-- <label for="isbn">Isbn</label>
     <input type="radio" checked="checked" name="criterio" id="isbn">
     <label for="titulo">Titulo</label>
     <input type="radio" name="criterio" id="titulo">
@@ -20,8 +35,10 @@ include('header.php');
     <input type="radio" name="criterio" id="autor">
     <input type="hidden" name="criterioValor" id="criterioValor">
 
-    <button type="submit" onclick="filtrar_func(event)" id="filtrar">Filtrar</button>
+    <button type="submit" onclick="filtrar_func(event)" id="filtrar">Filtrar</button> -->
   </form>
+  </div>
+    </div>
 
   <!-- <script>
         function filtrar_func(event){
@@ -53,35 +70,41 @@ include('header.php');
     include('db.php'); 
     $q = "SELECT isbn,titulo,autor,resena,editorial,idioma,paginas,total,imagen FROM libro";
 
-    if(isset($_GET["filtro"]) && isset($_GET["criterio"]))
-    {
-      $filtro = $_GET["filtro"];
-      $criterio = $_GET["criterioValor"];
-      echo $criterio;
-      $critt = "critt";
-      echo $critt;
-      if($criterio === "isbn")
-      {
-        $q = "SELECT isbn,titulo,autor,resena,editorial,idioma,paginas,total,imagen FROM libro where isbn like '%$filtro%'";
-      }
-      else
-      {
-        if($criterio === "titulo")
-        {
-            $q = "SELECT isbn,titulo,autor,resena,editorial,idioma,paginas,total,imagen FROM libro where titulo like '%$filtro%'";
-        }
-        else{
-            $q = "SELECT isbn,titulo,autor,resena,editorial,idioma,paginas,total,imagen FROM libro where autor like '%$filtro%'";
-            }
+    // if(isset($_GET["filtro"]) && isset($_GET["criterio"]))
+    // {
+    //   // $filtro = $_GET["filtro"];
+    //   // $criterio = $_GET["criterioValor"];
+    //   // echo $criterio;
+    //   // $critt = "critt";
+    //   // echo $critt;
+    //   if($criterio === "isbn")
+    //   {
+    //     $q = "SELECT isbn,titulo,autor,resena,editorial,idioma,paginas,total,imagen FROM libro where isbn like '%$filtro%'";
+    //   }
+    //   else
+    //   {
+    //     if($criterio === "titulo")
+    //     {
+    //         $q = "SELECT isbn,titulo,autor,resena,editorial,idioma,paginas,total,imagen FROM libro where titulo like '%$filtro%'";
+    //     }
+    //     else{
+    //         $q = "SELECT isbn,titulo,autor,resena,editorial,idioma,paginas,total,imagen FROM libro where autor like '%$filtro%'";
+    //         }
     
-      }
+    //   }
 
-    }
+    // }
 
     $response = $connection->query($q);
 
-    if ($response->num_rows > 0) {
-        while($row = $response->fetch_assoc()) {
+    if ($response->num_rows > 0) 
+    {
+        while($row = $response->fetch_assoc()) 
+        {
+          if($filtro != "")
+          {
+            if(strpos(strtolower($row["titulo"]),strtolower($filtro)) !== false || strpos(strtolower($row["isbn"]),strtolower($filtro)) !== false) 
+            {
             echo '<tr id="'.$row["isbn"].'">
             <td>'.$row["isbn"].'</td>        
             <td>'.$row["titulo"].'</td>
@@ -104,8 +127,37 @@ include('header.php');
             Eliminar</button>
             </form>           
             </td>
-             </tr>';              
+             </tr>';    
+            }
+          }  
+          else 
+          {
+            echo '<tr id="'.$row["isbn"].'">
+            <td>'.$row["isbn"].'</td>        
+            <td>'.$row["titulo"].'</td>
+            <td>'.$row["autor"].'</td>
+            <td>'.$row["resena"].'</td>
+            <td>'.$row["editorial"].'</td>
+            <td>'.$row["idioma"].'</td>
+            <td>'.$row["paginas"].'</td>
+            <td>'.$row["total"].'</td>
+            <td><img style="width:50px;" src="image/'.$row["imagen"].'"></td>           
+            <td style="display:flex">
+            <form action="libro-crear.php" method="get">
+            <input type="hidden" value="'.$row["isbn"].'" name="id">
+            <button type="submit" class="btn btn-primary">
+            Editar</button>
+            </form>
+            <form id="deleteForm'.$row["isbn"].'" action="libro-delete.php" method="post">
+            <input name="id" type="hidden" value="'.$row["isbn"].'">
+            <button type="submit" id="delete'.$row["isbn"].'" onclick="clickHandler(event)" class="btn btn-danger">
+            Eliminar</button>
+            </form>           
+            </td>
+             </tr>';                
+          }  
         }
+          
     } else {
         printf('Registro no encontrado.<br />');
     }

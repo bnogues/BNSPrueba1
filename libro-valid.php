@@ -1,6 +1,6 @@
 
 <?php
-echo "en libro-valid";
+// echo "en libro-valid";
 
 include('db.php');
 

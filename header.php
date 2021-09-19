@@ -21,6 +21,8 @@ if(!isset($_SESSION['login']))
 {
   $_SESSION['login'] = false;
   $_SESSION['username'] = 'Invitado';
+  $_SESSION['error'] = '0';
+  $_SESSION['errorjs2'] = '0';
 }
 
       // Login
@@ -94,43 +96,40 @@ $my_Usr = "Usuario: ".  $user;
         <!-- Login -->
         <?php $my_Usr = "Usuario: ".  $user;?>
         <h4><?php echo $my_Usr;?></h4>;       
-
+ 
         <!-- <p>"Usuario Conectado:"</p>
         <div id="usuarioconectado"> </div> -->
     </div>
-    <a  id="btnCarrito"style="margin: 0px 200px;visibility: hidden;" type="button" class="btn btn-primary bg-dark">
+    <a  id="btnCarrito"style="margin: 0px 400px;visibility: hidden;" type="button" class="btn btn-primary bg-dark">
                     Carrito <span class="badge bg-secondary">4</span>
     </a>
     <!-- <form class="d-flex"> -->
     <form action="usuario-crear.php" method="post" class="d-flex"> 
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button> -->
         <?php 
           if($_SESSION['login'] != true)
           {
             echo '<button class="btn btn-outline-success" type="submit">Registro</button>';
- 
           }
-         ?>     
+        ?>     
         <a
           <?php
-          if($_SESSION['login']){
-            echo 'href="login-valid.php"';
-          }
-          else{
-          
-          echo 'href="login.php"';
-          }
-          
+            if($_SESSION['login']){
+              echo 'href="login-valid.php"';
+            }
+            else{
+            
+            echo 'href="login.php"';
+            }
           ?>
           class="btn btn-outline-success" type="button">
-          <?php 
-      
-          if($_SESSION['login']){
-            echo('Logout');
-          }else{
-            echo('Login');
-          }
+          <?php       
+            if($_SESSION['login']){
+              echo('Logout');
+            }else{
+              echo('Login');
+            }
           ?>
         </a>
 

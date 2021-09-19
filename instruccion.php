@@ -31,7 +31,10 @@ include('header.php');
             </div>
             <div>   
                 Si se registra, ademas de las opciones de Menu anteriores, tendra las opciones Prestamo, Devolucion y Consulta
-                Si se registra como Administrador, tambien tendra las opciones ABM de Libros y Usuarios.
+                Si se registra como Administrador, tambien tendra las opciones ABM de Libros y Usuarios
+            </div>
+            <div>     
+                El usuario Administrador esta definido en Hardcode y es bernardonogues@yahoo.com y contraseña berna
             </div>
             <div>     
                 Si necesita hacernos alguna consulta utilice la Opcion Contacto

@@ -236,37 +236,57 @@ FOOTER.PHP / clickHandler3  no ejecuta prestamo-valid.php  ?????
 libro-delete.php  borrar porque el delete se hace en el control del click  no en este form
 
 
-30/08   Consultas Pedro
+01/09   Consultas Pedro
 ***********************
-1-- INDEX.PHP  2 libros registrados no se ven... arma toda las lineas juntas ...(1 sola linea let en vez de una por libro)
-D.  "Preguntas Frecuentes"  - PEDRO // el mismo error de A0,  hay dos Preguntas y las concatena y no sale ninguna
+PRESTAR_VALID.PHP -- mensajes de Validacion no los muestra ?/
 
-2-- "prestamo-valid.php"  desde donde se invoca: desde "function clickHandler3"  o desde action="prestamo-valid.php" (linea 98  prestamo.php)  ??
-
-2-- Mensajes desplegables dentro de PHP  (el echo dentro de PHP no se muestra en la pantalla.  estoy haciendo DIE() para verlos)
-3-- Tabla PRESTAMO  no quedo EDITABLE (que se pueda modificar o borrar un registro) 
-4-- Fecha de hoy  --  pone 1 dia mas ??
-5-- "login-valid.php" -- linea 20  el SELECT ..WHERE no funciona, no encuentra el registro.... hice SELECT *  y despues dentro del while un IF  ??
-5B- "login-valid.php" -- linea 45  Mensaje dentro de un PHP
 E2- "usuario-crear.php --  password es palabra reservada -- en los select queda pintado de azul 
 
 
 HACER
 *****
-A0. "index.php" -- que muestre mas de un libro -- PEDRO !!!
-D.  "Preguntas Frecuentes"  - PEDRO // el mismo error de A0,  hay dos Preguntas y las concatena y no sale ninguna
 
-A0. "Footer.php" linea 101 .. error al ejecutar  "prestamo-valid.php"   PEDRO ??
+Instrucciones completar
+PRESTAMO.PHP  // Mantener el valor del check del Filltro
+PRESTAMO.PHP  // cambiar IFs por Switch
+PRESTAMO.PHP probar todas las Validaciones
+USUARIO_CREAR.PHP  -- Validaciones  ?
+LIBRO_CREAR.PHP    -- Validaciones ?
+LOGIN.PHP   --  Estilo a toda la pantalla
+Documento Word de Funcionamiento
 
-B.  "Devolucion-valid.php"  probar -- primero arreglar A0
 
-H.  "Index.php" //  implementar el "Search"  u otro Filtro generico 
+CONSULTA  join de 2 tablas
 
 
+
+H3.   Filtros  -- probar y revisar LIBROS (filto y mantener valor) -- 
+
+      (Registro) Usuario-crear.php   faltan validaciones
+      Libros.php  // Crear  no tiene Validaciones 
+
+      Prestamo_Valid.php //  Filtro que mantenga el valor del Check
+      Prestamo_Valid.php //  error despues de Confirmar al volver a PRESTAMO.PHP
+      USUARIO_CREAR.PHP  cuando es Login true que vuelva a USUARIO.PHP
+
+
+H6.   Prestamo.valid -- Validacion no hay mas libros para prestar
+H.    "Index.php" //  implementar  Filtro generico 
+
+
+
+   COLORES Y ESTILOS !!!
+
+X  Respaldos 
+   Borrar Archivos que no se usan 
+   Archivos a Carpetas 
+   Borrar Codigo que no se usa 
+   Comentarios en el Codigo
 
 
 Hecho
 *****
+A0. "index.php" -- que muestre mas de un libro -- PEDRO !!!
 A1.  Tabla "prestamo"  borrar y hacer de nuevo
 B.   "Devolucion-valid.php"  hecho
 E1.  "Login y Registro" -- completar validando password, validando usuario y cargando usuario en lugar del mail
@@ -276,6 +296,30 @@ F.   !!!!!!Opciones del Menu Visibles y No Visibles - Menu Libros y Usuarios mos
 G.   "Consulta"  Historia de un Usuario
 C.   "Instruccionoes" // reescribir
 I.  Borrar Login2.php y Login3.php  solo quedan  Login.php y Login-valid.php
+A2. "Prestamo-valid.php" --  probar todas las Validaciones, 
+B.  "Devolucion-valid.php"  //  error en el UPDATE 
+A3. "Prestamo-valid.php" y "Devolucion-valid.php"  IMPLEMENTAR "USER" conectado ... de la SESSION  y en otras opciones
+H2.  Libro.php  //  No poder eliminar o borrar un Libro que esta en Tabla Prestamo
+A2. "Prestamo-valid.php" --  Desplegar bien los Mensajes
+0000  --  RESPALDO EN  PENDRIVE
+D.  "Preguntas Frecuentes"  - PEDRO // el mismo error de A0,  hay dos Preguntas y las concatena y no sale ninguna
+H3B.  Filtros  -- probar y revisar PRESTAMOS (filto y mantener valor) -- al final manda a LIBROS
+******      Prestamo_Valid.php //  que vuelva a Prestamo.php
+******!!!Prestamo_Valid.php //  que no muestre el mensaje "no hay registros"  
+******USUARIOS.PHP // Filtro buscar por campos Usuario-telefono-nombre-direccion
+******H4.   Mensajes .. cambiar por mejor Estilos
+******H5.   Agregar mas usuarios
+******H.    Agregar Preguntas Frecuentes
+******H.    Agregar Usuarios (para probsar Roles y semillas...)
+***CONTACTO.PHP  // agregar el usuario de la variable de Session
+***LIBRO.PHP -- boton ELIMINAR -- Mensaje de Confirmar esta en Ingles, cambiar
+***USUARIO.PHP -- boton ELIMINAR -- Mensaje de Confirmar esta en Ingles, cambiar
 
-
-
+Preguntas
+********
+2-- "prestamo-valid.php"  desde donde se invoca: desde "function clickHandler3"  o desde action="prestamo-valid.php" (linea 98  prestamo.php)  ??
+A0. "Footer.php" linea 101 .. error al ejecutar  "prestamo-valid.php"   PEDRO ??
+D.  "Preguntas Frecuentes"  - PEDRO // el mismo error de A0,  hay dos Preguntas y las concatena y no sale ninguna
+2-- Mensajes desplegables dentro de PHP  (el echo dentro de PHP no se muestra en la pantalla.  estoy haciendo DIE() para verlos)
+X.  SELECT // NO me funciono el WHERE en varios de los Select  ej  Prestamo-Valid.php  linea  98   (y "login-valid.php" -- linea 20 )
+5B- "login-valid.php" -- linea 45  Mensaje dentro de un PHP

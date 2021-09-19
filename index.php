@@ -1,9 +1,8 @@
-<?php
-include('header.php');
-// Login
+<?php include('header.php'); ?>
+<!-- // Login
 // $user = isset($_SESSION['username'])?$_SESSION['username']:"";
-// $my_Usr = "Usuario: ".  $user;
-?>
+// $my_Usr = "Usuario: ".  $user; -->
+
 
 <!-- <div class="container"> -->
 
@@ -24,7 +23,6 @@ include('header.php');
  <script>
 
 
-
 let librosContainer = document.getElementById("listaLibros");
 <?php
     include('db.php'); 
@@ -41,49 +39,55 @@ let librosContainer = document.getElementById("listaLibros");
       $resena = $row["resena"];
       $imagen = $row["imagen"];
 
-      $linea =  "$linea".$row['isbn'];
+      $domh5node =  "Domh5Node".$row['isbn'];
+      $DOMpNode =  "DOMpNode".$row['isbn'];
+      $DOMh3Node =  "DOMh3Node".$row['isbn'];
+      $DOMdivNode =  "DOMdivNode".$row['isbn'];
+      $DOMimgNode =  "DOMimgNode".$row['isbn'];   
+      $DOMcardNode =  "DOMcardNode".$row['isbn'];    
+      $DOMcolNode =  "DOMcolNode".$row['isbn'];    
 
-      echo "let $linea = document.createElement('h5');
-            $linea.className = 'card-title';
-            $linea.innerText = '$titull';
+      echo "let $domh5node = document.createElement('h5');
+            $domh5node.className = 'card-title';
+            $domh5node.innerText = '$titull';
     
-            let DOMpNode = document.createElement('p');
-            DOMpNode.className = 'card-text';
-            DOMpNode.innerText = '$autor';
+            let $DOMpNode = document.createElement('p');
+            $DOMpNode.className = 'card-text';
+            $DOMpNode.innerText = '$autor';
     
-            let DOMh3Node = document.createElement('h5');
-            DOMh3Node.className = 'card-resena';
-            DOMh3Node.innerText = '$resena';
+            let $DOMh3Node = document.createElement('h5');
+            $DOMh3Node.className = 'card-resena';
+            $DOMh3Node.innerText = '$resena';
     
-            let DOMdivNode = document.createElement('div');
-            DOMdivNode.className = 'card-body';
+            let $DOMdivNode = document.createElement('div');
+            $DOMdivNode.className = 'card-body';
     
-            DOMdivNode.appendChild($linea);
-            DOMdivNode.appendChild(DOMpNode);
-            DOMdivNode.appendChild(DOMh3Node);
+            $DOMdivNode.appendChild($domh5node);
+            $DOMdivNode.appendChild($DOMpNode);
+            $DOMdivNode.appendChild($DOMh3Node);
     
     
-            let DOMimgNode = document.createElement('img');
-            DOMimgNode.className = 'card-img-top';        
-            DOMimgNode.setAttribute('src', 'image/$imagen');
+            let $DOMimgNode = document.createElement('img');
+            $DOMimgNode.className = 'card-img-top';        
+            $DOMimgNode.setAttribute('src', 'image/$imagen');
    
-            DOMimgNode.setAttribute('height', '190px');
-            DOMimgNode.setAttribute('width', '150px');
+            $DOMimgNode.setAttribute('height', '190px');
+            $DOMimgNode.setAttribute('width', '150px');
     
-            let DOMcardNode = document.createElement('div');
-            DOMcardNode.className = 'card';
-            DOMcardNode.style.width = '18rem;';
-            DOMcardNode.style.textAlign = 'center';
+            let $DOMcardNode = document.createElement('div');
+            $DOMcardNode.className = 'card';
+            $DOMcardNode.style.width = '18rem;';
+            $DOMcardNode.style.textAlign = 'center';
     
-            DOMcardNode.appendChild(DOMimgNode);
-            DOMcardNode.appendChild(DOMdivNode);
+            $DOMcardNode.appendChild($DOMimgNode);
+            $DOMcardNode.appendChild($DOMdivNode);
     
-            let DOMcolNode = document.createElement('div');
-            DOMcolNode.className = 'col-4'
-            DOMcolNode.style.marginBottom = '8px';
-            DOMcolNode.appendChild(DOMcardNode);
+            let $DOMcolNode = document.createElement('div');
+            $DOMcolNode.className = 'col-4'
+            $DOMcolNode.style.marginBottom = '8px';
+            $DOMcolNode.appendChild($DOMcardNode);
     
-            listalibros.appendChild(DOMcolNode);";
+            listalibros.appendChild($DOMcolNode);";
     
 
         } 

@@ -10,15 +10,16 @@
     -->
     <script>
 
+// Funcion invocada desde LIBRO.PHP y desde USUARIO.PHP - Boton ELIMINAR
       function clickHandler(e){
         e.preventDefault();
         swal({
-          title: "Are you sure?",
-          text: "You will not be able to recover this imaginary file!"+ e.target.id,
-          type: "warning",
+          title: "Confirma eliminar el Registro ?",
+          text:  "Si elimina el registro no se podra recuparar !"+ e.target.id,
+          type:  "warning",
           showCancelButton: true,
           confirmButtonClass: "btn-danger",
-          confirmButtonText: "Yes!",
+          confirmButtonText: "SI !",
           cancelButtonText: "No",
           closeOnConfirm: false,
           closeOnCancel: false
@@ -27,9 +28,9 @@
           if (isConfirm) {
             let form = document.getElementById('deleteForm'+e.target.id.replace('delete',''));
             form.submit();
-            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            swal("Borrado!!!", "El registro ha sido eliminado.", "success");
           } else {
-            swal("Cancelled", "Your imaginary file is safe :)", "error");
+            swal("Cancelado", "El registro NO se ha eliminado.", "error");
           }
         });
       }
@@ -50,97 +51,137 @@ function isValidMensaje(mensaje) {
     return false;
 }
 
+// Esta funcion se invoca desde CONTACTO.PHP -- Boton CONTACTO
 function clickHandler2(e){
-       e.preventDefault();
-        alert('se ha dado click al boton');   
-        if(confirm("Confirma el Envio!")) { 
-          var errorcontacto = document.getElementById('errorcontacto');     
-            errorcontacto.style.display = 'none'
-            let mail = document.getElementById('mail').value;
-            let mensaje = document.getElementById('mensaje').value;
-             
-            if (isValidCorreo(mail) && isValidMensaje(mensaje)) 
+        e.preventDefault();
+         // if(confirm("Confirma el Envio!")) 
+       swal(
+          {
+            title: "Confirma el Contacto ?",
+            text:  "Si confirma se enviara la Consulta",
+            type:  "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText:  "Si !",
+            cancelButtonText:   "No",
+            closeOnConfirm: false,
+            closeOnCancel:  false
+          },
+          function(isConfirm) 
             {
-                errorcontacto.style.display = 'none';   
-                //  mando a la console
-                console.log(mail);
-                console.log(mensaje);
+              if (isConfirm)        
+              { 
+                  var errorcontacto = document.getElementById('errorcontacto');     
+                  errorcontacto.style.display = 'none'
+                  let mail = document.getElementById('mail').value;
+                  let mensaje = document.getElementById('mensaje').value;
 
-                swal("Envio", "Su consulta fue enviada", "Ok");
+                  if (isValidCorreo(mail) && isValidMensaje(mensaje)) 
+                  {
+                      errorcontacto.style.display = 'none';   
 
-                // contacto-valid.php
-                document.forms["contacto-valid.php"].submit()
+                      //swal("Su consulta fue enviada");      
+
+                      // Enviar a CONTACTO-VALID.PHP
+                      document.getElementById("contacform").submit();
+                  }
+                  else 
+                  { 
+                      errorcontacto.style.display = 'block';
+                      swal("Su Consulta no es valida porque esta incompleta !");
+                  }           
+              } 
+              else 
+              {
+                  swal("Cancelado", "Su consulta no fue enviado :)", "error");
+              }
             }
-            else 
-            { 
-                 errorcontacto.style.display = 'block';
-                swal("Su Consulta no es valida !");
+          );
+}  
 
-            }
 
-            // let form = document.getElementById('deleteForm'+e.target.id.replace('delete',''));
-            // form.submit();
-            // let form = contacto-valid.php;
-            // form.submit();
-            // contacto-valid.submit();
-
-            
-          } 
-          else {
-            swal("Cancelado", "Su consulta no fue enviado :)", "error");
-          }
-        };
-       
+// Esta funcion se invoca desde PRESTAMO.PHP -- Boton PRESTAR
 function clickHandler3(e){
         e.preventDefault();
-        alert('se ha dado click al boton PRESTAR LIBRO');   
-
-
-        if(confirm("Confirma el PRESTAMO ?")) { 
-
-              document.forms["prestamo-valid.php"].submit();
-
-
-                // swal("Envio", "Su consulta fue enviada", "Ok");
-                // swal("Su Consulta no es valida !");
-                // swal("Cancelado", "Su consulta no fue enviado :)", "error");
-           
+        swal(
+          {
+          title: "Confirma el Prestamo?",
+          text:  "Si confirma se registrara el Prestamo"+ e.target.id,
+          type:  "warning",
+          showCancelButton: true,
+          confirmButtonClass: "btn-danger",
+          confirmButtonText:  "Si !",
+          cancelButtonText:   "No",
+          closeOnConfirm: false,
+          closeOnCancel:  false
+        },
+        function(isConfirm) 
+        {
+          if (isConfirm) 
+          {
+             let id = e.target.id;
+             document.getElementById("prestarForm"+id).submit();            
+            //  swal("Confirmado", "Prestamo registrado", "success");
           } 
+          else 
+          {
+             swal("No Confirmo", "El Prestamo no se registro", "error");
+          }
+        });
 }
 
+// Funcion que se invoca desde LIBROS.PHP
       function filtrar_func(event){
         event.preventDefault();
         var selectedValue = document.querySelector('input[name="criterio"]:checked').id  
         alert("Hola");
+        alert(selectedValue);
         document.getElementById('criterioValor').value = selectedValue;
         document.getElementById('filtrarForm').submit();
       }
 
+// Funcion que se invoca desde PRESTAMO.PHP
+      function filtrar_prestamo(event){
+        event.preventDefault();
+        var selectedValue = document.querySelector('input[name="criterio"]:checked').id 
 
-      function clickHandler5(e){
-        e.preventDefault();
-        swal({
-          title: "Are you sure?",
-          text: "You will not be able to recover this imaginary file!"+ e.target.id,
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonClass: "btn-danger",
-          confirmButtonText: "Yes!",
-          cancelButtonText: "No",
-          closeOnConfirm: false,
-          closeOnCancel: false
-        },
-        function(isConfirm) {
-          if (isConfirm) {
-            let form = document.getElementById('deleteForm'+e.target.id.replace('delete',''));
-            form.submit();
-            swal("Deleted!", "Your imaginary file has been deleted.", "success");
-          } else {
-            swal("Cancelled", "Your imaginary file is safe :)", "error");
-          }
-        });
+        // alert(selectedValue);
+        document.getElementById('criterioValor').value = selectedValue;
+        document.getElementById('filtrarPrestamo').submit();
       }
 
+// Esta funcion se invoca desde DEVOLUCION.PHP -- Boton DEVOLVER
+      function clickHandler5(e) 
+      {
+        e.preventDefault();
+        swal(
+        {
+          title: "Confirma la Devolucion?",
+          text:  "Si confirma se registrara la Devolucion"+ e.target.id,
+          type:  "warning",
+          showCancelButton: true,
+          confirmButtonClass: "btn-danger",
+          confirmButtonText:  "Si !",
+          cancelButtonText:   "No",
+          closeOnConfirm: false,
+          closeOnCancel:  false
+        },
+        function(isConfirm) 
+        {
+          if (isConfirm) 
+          {
+             let id = e.target.id;
+             document.getElementById("devolverForm"+id).submit();               
+
+             swal("Confirmado", "Devolucion registrada", "success");
+          } 
+          else 
+          {
+             swal("No Confirmo", "La Devolucion no se registro", "error");
+          }
+        });
+
+      }
     </script>
 
 

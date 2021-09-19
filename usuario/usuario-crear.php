@@ -37,7 +37,7 @@ include('db.php');
   
   
   ?>
-<form action="usuario-valid.php" method="post" class="row g-3">
+<form action="../usuario/usuario-valid.php" method="post" class="row g-3">
 <div class="col-12">
     <input type="hidden" name="id" value="<?php echo $id;?>">
     <label for="usuario" class="form-label">Usuario</label>

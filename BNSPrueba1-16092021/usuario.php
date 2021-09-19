@@ -1,12 +1,22 @@
-<?php
-include('header.php');
+<?php include('header.php'); ?>
 
-$filtro = "";
-if(isset($_GET['filtro']))
-{
-  $filtro = $_GET['filtro'];
-}
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+
+<?php
+  // // session_start();
+  // if (!isset($_SESSION['errorjs3'])) 
+  // {
+  //   $_SESSION['errorjs3'] = '0';
+  // }
+
+  $filtro = "";
+  if(isset($_GET['filtro']))
+  {
+    $filtro = $_GET['filtro'];
+  }
 ?>
+
+
 <div class="container">
   <h1>Usuarios</h1>
   <!-- Flexbox container for aligning the toasts -->
@@ -103,6 +113,6 @@ if(isset($_GET['filtro']))
   ?>
   </tbody>
 </table>
-  </div>
+</div>
 
-  <?php include('footer.php'); ?>
+  <?phpinclude('footer.php'); ?>

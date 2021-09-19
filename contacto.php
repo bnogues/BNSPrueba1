@@ -2,13 +2,13 @@
 include('header.php');
 ?>
 
-<!-- PENDIENTE Esta variable se debe cargar con la Session Storage -->
-<?php $usuario = 'berna' ?>
+<?php 
+$usuario = isset($_SESSION['username'])?$_SESSION['username']:"Invitado";
+?>
 
 <body>
-
     <div class="container">
-        <form action="contacto-valid.php" method="post" class="row g-3">
+        <form id="contacform" action="contacto-valid.php" method="post" class="row g-3">
             <div class="row justify-content-center align-items-center">
                 <h1 class="title" style="text-align: center;">Contactar a la Biblioteca</h1>
                 <!-- <br> -->
@@ -18,7 +18,7 @@ include('header.php');
                 </div>
 
                 <script>
-    document.getElementById('errorcontacto').style.display = 'none';
+                     document.getElementById('errorcontacto').style.display = 'none';
                 </script>
 
                 <div class="mb-3">
@@ -34,21 +34,11 @@ include('header.php');
                 </div>
 
                 <div class="col-12" style="text-align: center;">
-                    <!-- Este funciona bien pero no escucha el Click - enviar directo a "Contacto-valid" sin validar -->
-                    <!-- <button type="submit" id="enviar"  class="btn btn-primary">Enviar Mensaje</button> -->
-
-                    <!-- </form>
-            <form id="deleteForm'.$row["id"].'" action="usuario-delete.php" method="post">
-            <input name="id" type="hidden" value="'.$row["id"].'"> -->
-
-                    <button type="submit" id="enviar" onclick="clickHandler2(event)" class="btn btn-primary">Enviar Mensaje</button>
-                    <!-- <button type="submit" id="enviar" class="btn btn-primary">Enviar Mensaje</button> -->
-            <!-- </form> -->
+                    <button type="submit" id="enviar" onclick="clickHandler2(event)" class="btn btn-primary">Enviar Mensaje</button>  
                  </div> 
             </div>
         </form>
     </div>
-
 </body>
 
 
